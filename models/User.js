@@ -21,24 +21,29 @@ const userSchema = new Schema(
             validate: [validateEmail, 'Please fill a valid email address'],
             match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
         },
-        thoughts: [{
-            type: ObjectId, ref: 'Thought'
-            
-        }],
+        thoughts: [
+            {
+              type: Schema.Types.ObjectId,
+              ref: 'Thought',
+            },
+          ],
         accessToken: {
             type:String
         },
-        friends: [{
-            type: ObjectId, ref: 'User'
-        }]
-
-
+        friends: [
+            {
+              type: Schema.Types.ObjectId,
+              ref: 'User',
+            },
+          ],
 
     },
     {
         toJSON: {
             getters: true,
-        }
+            virtuals: true,
+        },
+        id: false,
     }
 );
 
@@ -49,3 +54,4 @@ userSchema.virtual("friendCount").get(function () {
 const User = model("user", userSchema);
 
 module.exports = User;
+// module.exports = router;
