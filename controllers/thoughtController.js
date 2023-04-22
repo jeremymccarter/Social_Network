@@ -24,15 +24,15 @@ module.exports = {
           .then(({_id}) => {
             return User.findOneAndUpdate(
               {_id: params.userId},
-              {$push: {thought:_id}},
+              {$push: {thoughts:_id}},
               { new: true}
             )
           .then(thought => {
             if(!thought) {
-              res.status(404).json({ message: 'No thought with that ID' });
-              return;
+             return res.status(404).json({ message: 'No thought with that ID' });
+             
             }
-            res.json(thought);
+            res.json(thought, {message: 'Testing'});
           })
           .catch((err) => {
             console.log(err);
