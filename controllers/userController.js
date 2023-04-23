@@ -1,4 +1,4 @@
-const { Thought } = require('../models')
+const { Thought } = require('../models/Thought')
 const User = require('../models/User')
 
 const headCount = async () =>
