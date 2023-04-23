@@ -23,23 +23,25 @@ module.exports = {
         Thought.create(body)
           .then(({_id}) => {
             return User.findOneAndUpdate(
-              {_id: params.userId},
+              {_id: body.userId},
               {$push: {thoughts:_id}},
               { new: true}
             )
+            })
           .then(thought => {
             if(!thought) {
+
              return res.status(404).json({ message: 'No thought with that ID' });
              
             }
-            res.json(thought, {message: 'Testing'});
+            res.json( {message: 'Testing'});
           })
           .catch((err) => {
             console.log(err);
             return res.status(500).json(err);
           })
-        })
-          .catch(err => res.status(500).json(err));
+        
+    
       },
 
     deleteThought(req,res) {
