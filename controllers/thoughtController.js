@@ -51,7 +51,7 @@ module.exports = {
             ? res.status(404).json({ message: 'No thought with that ID =('})
             : User.deleteMany({ _id: { $in: thought.user } })
         )
-        .then(() => res.json({ message: 'Thought and users deleted!' }))
+        .then(() => res.json({ message: 'This thought has been unthunk!' }))
         .catch((err) => res.status(500).json(err));
     },
 
@@ -71,32 +71,30 @@ module.exports = {
     },
     addReaction({params, body}, res) {
         Thought.findOneAndUpdate(
-          { _id: params.thoughtId },
+          { _id: body.thoughtId },
           { $push: { reactions: body } },
           { runValidators: true, new: true })
-          // .populate({path: 'reactions', select: '-__v'})
-          // .select('-__v')
           .then((thought) =>
             !thought
               ? res
                   .status(404)
-                  .json({ message: 'No thought found with that ID :(' })
+                  .json({ message: 'No thought found with that ID =(' })
               : res.json(thought)
           )
           .catch((err) => res.status(500).json(err));
       },
       // Remove reaction from a thought
-      removeReaction({params}, res) {
+      removeReaction({params, body}, res) {
         Thought.findOneAndUpdate(
-          { _id: params.thoughtId },
-          { $pull: { reaction: { reactionId: params.reactionId } } },
+          { _id: body.thoughtId },
+          { $pull: { reaction: { reactionId: body.reactionId } } },
           { runValidators: true, new: true }
         )
           .then((thought) =>
             !thought
               ? res
                   .status(404)
-                  .json({ message: 'No thought found with that ID :(' })
+                  .json({ message: 'No thought found with that ID =(' })
               : res.json(thought)
           )
           .catch((err) => res.status(500).json(err));
