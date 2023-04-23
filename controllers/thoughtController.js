@@ -34,7 +34,7 @@ module.exports = {
              return res.status(404).json({ message: 'No thought with that ID' });
              
             }
-            res.json( {message: 'Testing'});
+            res.json( {message: 'Thought successfully posted!'});
           })
           .catch((err) => {
             console.log(err);
