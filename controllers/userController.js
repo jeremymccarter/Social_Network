@@ -1,4 +1,4 @@
-const { Thought } = require('../models/Thought')
+const Thought  = require('../models/Thought')
 const User = require('../models/User')
 
 const headCount = async () =>
@@ -69,7 +69,7 @@ module.exports = {
         .then((user) =>
             !user
                 ? res.status(404).json({ message: 'No such user exists'})
-                : Thought.findOneandUpdate(
+                : Thought.findOneAndUpdate(
                     { user: req.params.userId},
                     { $pull: { user: req.params.userId } },
                     { new: true}
