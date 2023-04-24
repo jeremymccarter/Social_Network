@@ -4,13 +4,13 @@ const { Schema, Types } = require('mongoose')
 
 const reactionSchema= new Schema(
     {
-    reactionID: {
-        type: Schema.Types.ObjectId,
-        default: function() {
-            return new Schema.Types.ObjectId()
-        }
+    // reactionID: {
+    //     type: Schema.Types.ObjectId,
+    //     default: function() {
+    //         return new Schema.Types.ObjectId()
+    //     }
     
-    },
+    // },
     reactionBody: {
         type: String,
         required: true,

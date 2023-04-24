@@ -137,7 +137,7 @@ module.exports = {
         })
         .catch(err => res.status(500).json(err));
       },
-
+      // function to delete friend from friends list
       removeFriend({ params}, res) {
         User.findOneAndUpdate(
           { _id: params.userId },
