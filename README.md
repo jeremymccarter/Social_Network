@@ -25,7 +25,7 @@ An API for a social network web application where users can share their thoughts
    
   ## Demo
    ![Screenshot](https://user-images.githubusercontent.com/118328184/233541149-c7b291db-65df-4059-97aa-10af9f739715.png)
-   ![Video](https://drive.google.com/file/d/1G3U_ixTTElO-nlHpHKBZV4X_jFAGhwnV/view)
+    [Video](https://drive.google.com/file/d/1G3U_ixTTElO-nlHpHKBZV4X_jFAGhwnV/view)
   ## Contributions
   BCS, and tutors
 
