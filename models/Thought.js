@@ -25,6 +25,12 @@ const thoughtSchema = new Schema(
             reactionSchema
         ]
     },
+    // {
+    //     toJSON: {
+    //       getters: true,
+    //     },
+    //     id: false,
+    //   }
     {
         toJson: {
             virtuals: true,
